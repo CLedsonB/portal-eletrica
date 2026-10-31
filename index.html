@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Cálculos Elétricos | NBR 5410</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0F172A] text-slate-50 selection:bg-yellow-400 selection:text-slate-900">
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active max-w-4xl mx-auto py-12 px-6">
+        <header class="mb-16 text-center">
+            <div class="flex justify-center mb-4">
+                <i data-lucide="zap" class="text-yellow-400 w-8 h-8"></i>
+            </div>
+            <h1 class="text-4xl font-bold text-slate-50 mb-4 tracking-tight">
+                Portal de Cálculos <span class="text-yellow-400">Elétricos</span>
+            </h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                Ferramentas de precisão para dimensionamento técnico baseadas nas normas NBR 5410 e NBR 14039.
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Button 1 -->
+            <button onclick="navigateTo('condutores')" class="group p-8 bg-[#1E293B] border border-slate-700 rounded-3xl text-left transition-all hover:border-yellow-400 hover:bg-slate-700/50 hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-[#0F172A] rounded-2xl flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Dimensionamento de Condutores</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Cálculo de seção por ampacidade e queda de tensão (NBR 5410).</p>
+                <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
+                    Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                </div>
+            </button>
+
+            <!-- Button 2 -->
+            <button onclick="navigateTo('motores')" class="group p-8 bg-[#1E293B] border border-slate-700 rounded-3xl text-left transition-all hover:border-yellow-400 hover:bg-slate-700/50 hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-[#0F172A] rounded-2xl flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Partida de Motores</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Dimensionamento de contatores e relés para motores Mono e Trifásicos.</p>
+                <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
+                    Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                </div>
+            </button>
+
+            <!-- Button 3 -->
+            <button onclick="navigateTo('residenciais')" class="group p-8 bg-[#1E293B] border border-slate-700 rounded-3xl text-left transition-all hover:border-yellow-400 hover:bg-slate-700/50 hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-[#0F172A] rounded-2xl flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="home" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Cálculos Residenciais</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Previsão de carga: pontos de luz e tomadas por ambiente.</p>
+                <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
+                    Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                </div>
+            </button>
+        </div>
+
+        <footer class="mt-20 text-center text-slate-500 text-sm border-t border-slate-800 pt-8">
+            <p>© 2026 Engenharia de Precisão — Conformidade Técnica NBR 5410</p>
+        </footer>
+    </div>
+
+    <!-- CONDUTORES PAGE -->
+    <div id="condutores" class="page max-w-3xl mx-auto py-12 px-6">
+        <button onclick="navigateTo('home')" class="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Voltar ao Menu Principal
+        </button>
+        <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+            <i data-lucide="zap" class="text-yellow-400"></i> Dimensionamento de Condutores
+        </h2>
+        
+        <div class="bg-[#1E293B] p-8 rounded-3xl border border-slate-700 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Corrente de Projeto (Ib)</label>
+                    <div class="relative">
+                        <input type="number" id="cond-corrente" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">A</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Tensão de Operação</label>
+                    <div class="relative">
+                        <input type="number" id="cond-tensao" value="220" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">V</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Distância (Unilateral)</label>
+                    <div class="relative">
+                        <input type="number" id="cond-dist" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">m</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Queda de Tensão Máx.</label>
+                    <div class="relative">
+                        <input type="number" id="cond-queda" value="4" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="calcCondutores()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Seção Mínima
+            </button>
+
+            <div id="res-condutores" class="hidden mt-8 p-6 bg-[#0F172A] rounded-2xl border-l-4 border-yellow-400">
+                <p class="text-slate-400 text-sm uppercase tracking-wider font-semibold mb-1">Seção Calculada</p>
+                <p class="text-4xl font-mono font-bold text-white"><span id="val-cond">0.00</span> <span class="text-xl text-slate-500">mm²</span></p>
+                <div class="mt-4 flex items-start gap-2 text-xs text-slate-400">
+                    <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0 mt-0.5"></i>
+                    <p>Resultado baseado em condutor de cobre. Verifique a tabela de ampacidade da NBR 5410 para confirmar a seção comercial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOTORES PAGE -->
+    <div id="motores" class="page max-w-3xl mx-auto py-12 px-6">
+        <button onclick="navigateTo('home')" class="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Voltar ao Menu Principal
+        </button>
+        <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+            <i data-lucide="cpu" class="text-yellow-400"></i> Partida de Motores
+        </h2>
+        
+        <div class="bg-[#1E293B] p-8 rounded-3xl border border-slate-700 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Potência do Motor</label>
+                    <div class="relative">
+                        <input type="number" id="mot-cv" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">cv</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Tipo de Motor</label>
+                    <select id="mot-tipo" class="bg-[#0F172A] border border-slate-700 text-white p-3 rounded-xl outline-none focus:border-yellow-400 transition-colors">
+                        <option value="trifasico">Trifásico</option>
+                        <option value="mono">Monofásico</option>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Tensão da Rede</label>
+                    <div class="relative">
+                        <input type="number" id="mot-tensao" value="380" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">V</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="calcMotores()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                <i data-lucide="settings" class="w-5 h-5"></i> Dimensionar Componentes
+            </button>
+
+            <div id="res-motores" class="hidden mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Corrente Nominal (In)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-in">0.00</span> A</p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Contator (Ie)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-cont">0.00</span> A</p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Relé Térmico</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-rele">0.00</span> A</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESIDENCIAIS PAGE -->
+    <div id="residenciais" class="page max-w-3xl mx-auto py-12 px-6">
+        <button onclick="navigateTo('home')" class="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Voltar ao Menu Principal
+        </button>
+        <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+            <i data-lucide="home" class="text-yellow-400"></i> Pontos Residenciais
+        </h2>
+        
+        <div class="bg-[#1E293B] p-8 rounded-3xl border border-slate-700 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Área do Ambiente</label>
+                    <div class="relative">
+                        <input type="number" id="res-area" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">m²</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Perímetro do Ambiente</label>
+                    <div class="relative">
+                        <input type="number" id="res-perim" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">m</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="calcResidenciais()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Pontos Mínimos
+            </button>
+
+            <div id="res-residenciais" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-sm mb-2">Pontos de Iluminação</p>
+                    <p class="text-5xl font-bold text-white" id="val-res-luz">0</p>
+                    <p class="text-xs text-slate-500 mt-2">Mínimo sugerido</p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-sm mb-2">Pontos de Tomada (TUG)</p>
+                    <p class="text-5xl font-bold text-white" id="val-res-tom">0</p>
+                    <p class="text-xs text-slate-500 mt-2">Mínimo sugerido</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation Logic
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Calculation: Condutores
+        function calcCondutores() {
+            const corrente = parseFloat(document.getElementById('cond-corrente').value);
+            const tensao = parseFloat(document.getElementById('cond-tensao').value);
+            const dist = parseFloat(document.getElementById('cond-dist').value);
+            const queda = parseFloat(document.getElementById('cond-queda').value);
+
+            if (!corrente || !dist) return alert("Preencha todos os campos");
+
+            const s = (0.0172 * 2 * dist * corrente) / (tensao * (queda / 100));
+            document.getElementById('val-cond').innerText = s.toFixed(2);
+            document.getElementById('res-condutores').classList.remove('hidden');
+        }
+
+        // Calculation: Motores
+        function calcMotores() {
+            const cv = parseFloat(document.getElementById('mot-cv').value);
+            const tipo = document.getElementById('mot-tipo').value;
+            const tensao = parseFloat(document.getElementById('mot-tensao').value);
+
+            if (!cv) return alert("Preencha a potência do motor");
+
+            const in_val = tipo === 'trifasico' 
+                ? (cv * 736) / (1.732 * tensao * 0.85) 
+                : (cv * 736) / (tensao * 0.8 * 0.85);
+
+            document.getElementById('val-mot-in').innerText = in_val.toFixed(2);
+            document.getElementById('val-mot-cont').innerText = (in_val * 1.15).toFixed(2);
+            document.getElementById('val-mot-rele').innerText = in_val.toFixed(2);
+            document.getElementById('res-motores').classList.remove('hidden');
+        }
+
+        // Calculation: Residenciais
+        function calcResidenciais() {
+            const area = parseFloat(document.getElementById('res-area').value);
+            const perim = parseFloat(document.getElementById('res-perim').value);
+
+            if (!area || !perim) return alert("Preencha área e perímetro");
+
+            const t = Math.ceil(perim / 5);
+            const l = Math.ceil(area / 6);
+
+            document.getElementById('val-res-luz').innerText = l;
+            document.getElementById('val-res-tom').innerText = t;
+            document.getElementById('res-residenciais').classList.remove('hidden');
+        }
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
