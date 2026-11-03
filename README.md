@@ -1,12 +1,10 @@
-# Portal Eletrica
-
-Website com o intuito de realizar cálculos elétricos dos mais diversos ramos 
+# Calculadora do Eletricista
 
 ## Demostração
 
-### Veja o site: [Clique aqui](https://cledsonb.github.io/portal-eletrica/)
+### Veja o site: [Clique aqui]()
 
-## Propósito 
+## Propósito
 
 - Agilize seu serviço com a nossa calculadora e fique somente com o serviço manual
 

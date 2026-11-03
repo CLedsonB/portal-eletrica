@@ -56,6 +56,19 @@
                     Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
                 </div>
             </button>
+            
+            <!-- button luminotécnico -->
+            <button onclick="navigateTo('luminotecnico')" class="group p-8 bg-[#1E293B] border border-slate-700 rounded-3xl text-left transition-all hover:border-yellow-400 hover:bg-slate-700/50 hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-[#0F172A] rounded-2xl flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Método dos Lumens</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Cálculo para determinar quantidade mínima de pontos de iluminação por cômodo (ABNT NBR ISO/CIE 8995-1).</p>
+                <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
+                    Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                </div>
+            </button>
+            
 
             <!-- Button 2 -->
             <button onclick="navigateTo('motores')" class="group p-8 bg-[#1E293B] border border-slate-700 rounded-3xl text-left transition-all hover:border-yellow-400 hover:bg-slate-700/50 hover:-translate-y-1 shadow-lg">
@@ -63,7 +76,7 @@
                     <i data-lucide="cpu" class="w-6 h-6"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Partida de Motores</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6">Dimensionamento de contatores e relés para motores Mono e Trifásicos.</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Dimensionamento de contatores, fusível e relé térmico para motores Mono e Trifásicos.</p>
                 <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
                     Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
                 </div>
@@ -76,6 +89,18 @@
                 </div>
                 <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Cálculos Residenciais</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">Previsão de carga: pontos de luz e tomadas por ambiente.</p>
+                <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
+                    Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                </div>
+            </button>
+            
+            <!-- button placas -->
+            <button onclick="navigateTo('solar')" class="group p-8 bg-[#1E293B] border border-slate-700 rounded-3xl text-left transition-all hover:border-yellow-400 hover:bg-slate-700/50 hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-[#0F172A] rounded-2xl flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Cálculo para placas solares</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Cálculo para determinar quantidade mínima de placas solares para zerar o consumo de energia elétrica mensal</p>
                 <div class="flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-yellow-400 transition-colors">
                     Acessar ferramenta <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
                 </div>
@@ -142,6 +167,85 @@
             </div>
         </div>
     </div>
+    
+    <!-- Luminotécnico página -->
+    <div id="luminotecnico" class="page max-w-3xl mx-auto py-12 px-6">
+        <button onclick="navigateTo('home')" class="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Voltar ao Menu Principal
+        </button>
+        <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+            <i data-lucide="zap" class="text-yellow-400"></i> Método dos Lúmens
+        </h2>
+        
+        <div class="bg-[#1E293B] p-8 rounded-3xl border border-slate-700 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Comprimento (m)</label>
+                    <div class="relative">
+                        <input type="number" id="comprimento" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">m</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Largura (m)</label>
+                    <div class="relative">
+                        <input type="number" id="largura" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">m</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Pé direito (m)</label>
+                    <div class="relative">
+                        <input type="number" id="pe-direito" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">m</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Lúmens emitido pela luminária (lm)</label>
+                    <div class="relative">
+                        <input type="number" id="lumens" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">lm</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Luminância exigida (lux)(ISO 8995-1)</label>
+                    <div class="relative">
+                        <input type="number" id="luminancia" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">lx</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Fator de Manutenção (d)</label>
+                    <div class="relative">
+                        <input type="number" id="fator-manun" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold"></span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Fator de Utilização (n)</label>
+                    <div class="relative">
+                        <input type="number" id="fator-utili" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="calcLuminotecnico()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Quantidade de pontos de luz
+            </button>
+
+            <div id="res-luminotecnico" class="hidden mt-8 p-6 bg-[#0F172A] rounded-2xl border-l-4 border-yellow-400">
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">K (índice de recinto)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-k">0.00</span></p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Quantidade de pontos de iluminação (n)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-n">00</span> Unid</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MOTORES PAGE -->
     <div id="motores" class="page max-w-3xl mx-auto py-12 px-6">
@@ -161,6 +265,14 @@
                         <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">cv</span>
                     </div>
                 </div>
+                <!-- relação IP/IN -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Relação IP/IN</label>
+                    <div class="relative">
+                        <input type="number" id="ipin" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0">
+                    </div>
+                </div>
+                <!-- Tipo de motor (Mono - Tri) -->
                 <div class="flex flex-col gap-2">
                     <label class="text-slate-400 text-sm font-medium">Tipo de Motor</label>
                     <select id="mot-tipo" class="bg-[#0F172A] border border-slate-700 text-white p-3 rounded-xl outline-none focus:border-yellow-400 transition-colors">
@@ -187,8 +299,20 @@
                     <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-in">0.00</span> A</p>
                 </div>
                 <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Corrente de partida (Ip)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-ipin">0.00</span> A</p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Disjuntor (Ie)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-disj">0.00</span> A</p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
                     <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Contator (Ie)</p>
                     <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-cont">0.00</span> A</p>
+                </div>
+                <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
+                    <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Fusivel (If)</p>
+                    <p class="text-3xl font-mono font-bold text-white"><span id="val-mot-fusi">0.00</span> A</p>
                 </div>
                 <div class="p-6 bg-[#0F172A] rounded-2xl border border-slate-700 text-center">
                     <p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-2">Relé Térmico</p>
@@ -196,6 +320,9 @@
                 </div>
             </div>
         </div>
+        <button onclick="calcPlacas()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Quantidade de placas
+            </button>
     </div>
 
     <!-- RESIDENCIAIS PAGE -->
@@ -243,6 +370,68 @@
             </div>
         </div>
     </div>
+    
+    <!-- SOLAR PAGINA -->
+    <div id="solar" class="page max-w-3xl mx-auto py-12 px-6">
+        <button onclick="navigateTo('home')" class="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Voltar ao Menu Principal
+        </button>
+        <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+            <i data-lucide="zap" class="text-yellow-400"></i> Cálculo de placas solares
+        </h2>
+        
+        <div class="bg-[#1E293B] p-8 rounded-3xl border border-slate-700 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Energia elétrica mensal desejada</label>
+                    <div class="relative">
+                        <input type="number" id="potencia-eletrica" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">kWh</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Potência por placa</label>
+                    <div class="relative">
+                        <input type="number" id="potencia-placa" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">kW</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Horas de Sol por dia</label>
+                    <div class="relative">
+                        <input type="number" id="horas-sol" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">hrs</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Número de dias</label>
+                    <div class="relative">
+                        <input type="number" id="dias" value="30" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">dias</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-slate-400 text-sm font-medium">Fator de desempenho global</label>
+                    <div class="relative">
+                        <input type="number" id="desempenho-placa" class="w-full bg-[#0F172A] border border-slate-700 text-white p-3 pr-12 rounded-xl outline-none focus:border-yellow-400 transition-colors font-mono" placeholder="0.00">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="calcPlacas()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                <i data-lucide="calculator" class="w-5 h-5"></i> Calcular Quantidade de placas
+            </button>
+            
+            <div id="res-solar" class="hidden mt-8 p-6 bg-[#0F172A] rounded-2xl border-l-4 border-yellow-400">
+                <p class="text-slate-400 text-sm uppercase tracking-wider font-semibold mb-1">Resultado calculado</p>
+                <p class="text-4xl font-mono font-bold text-white"><span id="val-unid">0</span> <span class="text-xl text-slate-500">Unidades</span></p>
+                <div class="mt-4 flex items-start gap-2 text-xs text-slate-400">
+                    <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0 mt-0.5"></i>
+                    <p></p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Navigation Logic
@@ -265,10 +454,33 @@
             document.getElementById('val-cond').innerText = s.toFixed(2);
             document.getElementById('res-condutores').classList.remove('hidden');
         }
+        
+        // Calculation: Iluminancia
+        function calcLuminotecnico() {
+            let comprim = parseFloat(document.getElementById('comprimento').value);
+            let larg = parseFloat(document.getElementById('largura').value);
+            let peDir = parseFloat(document.getElementById('pe-direito').value);
+            let lm = parseFloat(document.getElementById('lumens').value);
+            let lx = parseFloat(document.getElementById('luminancia').value);
+            let fm = parseFloat(document.getElementById('fator-manun').value);
+            let fu = parseFloat(document.getElementById('fator-utili').value);
+
+            if (!comprim || !larg || !peDir || !lm || !lx || !fm) return alert("Preencha todos os campos");
+
+            let k = (comprim * larg) / (peDir * (comprim + larg))
+            document.getElementById('val-k').innerText = k.toFixed(2);
+            
+            let n =  (comprim * larg) / (lm * fm * fu)
+            
+            document.getElementById('val-n').innerText = n.toFixed(0);
+            document.getElementById('res-luminotecnico').classList.remove('hidden');
+        }
+        
 
         // Calculation: Motores
         function calcMotores() {
             const cv = parseFloat(document.getElementById('mot-cv').value);
+            const ipin = parseFloat(document.getElementById('ipin').value);
             const tipo = document.getElementById('mot-tipo').value;
             const tensao = parseFloat(document.getElementById('mot-tensao').value);
 
@@ -279,7 +491,13 @@
                 : (cv * 736) / (tensao * 0.8 * 0.85);
 
             document.getElementById('val-mot-in').innerText = in_val.toFixed(2);
-            document.getElementById('val-mot-cont').innerText = (in_val * 1.15).toFixed(2);
+            document.getElementById('val-ipin').innerText = (in_val * ipin).toFixed(2)
+            
+document.getElementById('val-mot-disj').innerText = (in_val * 1.15).toFixed(2);
+
+document.getElementById('val-mot-fusi').innerText = (in_val * 1.2).toFixed(2);
+           
+document.getElementById('val-mot-cont').innerText = (in_val * 1.15).toFixed(2);
             document.getElementById('val-mot-rele').innerText = in_val.toFixed(2);
             document.getElementById('res-motores').classList.remove('hidden');
         }
@@ -297,6 +515,21 @@
             document.getElementById('val-res-luz').innerText = l;
             document.getElementById('val-res-tom').innerText = t;
             document.getElementById('res-residenciais').classList.remove('hidden');
+        }
+        
+        // Calculation: Placas solares
+        function calcPlacas() {
+            let em = parseFloat(document.getElementById('potencia-eletrica').value);
+            let ep = parseFloat(document.getElementById('potencia-placa').value);
+            let hs = parseFloat(document.getElementById('horas-sol').value);
+            let dias = parseFloat(document.getElementById('dias').value);
+            let dp = parseFloat(document.getElementById('desempenho-placa').value);
+
+            if (!ep || !hs || !dias || !dp || !em) return alert("Preencha todos os campos");
+
+            let n = em / (hs * dias * dp * ep)
+            document.getElementById('val-unid').innerText = n.toFixed(0);
+            document.getElementById('res-solar').classList.remove('hidden');
         }
 
         // Initialize Lucide Icons
